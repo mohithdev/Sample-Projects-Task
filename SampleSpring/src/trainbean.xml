@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context =  "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   
+   <bean id="adrs1" class="com.wipro.spring.TravellerAddress">
+   		<property name="city" value="Guntur"/>
+   		<property name="state" value="AndhraPradesh"/>
+   		<property name="zipcode" value="522002"/>
+   	</bean>
+   	
+   	<bean id="adrs2" class="com.wipro.spring.TravellerAddress">
+   		<property name="city" value="Vijaywada"/>
+   		<property name="state" value="AndhraPradesh"/>
+   		<property name="zipcode" value="522001"/>
+   	</bean>
+   	
+   <bean id="shatabdhi" class="com.wipro.spring.TrainBean" init-method="myInit" destroy-method="myDestroy">
+   		<property name="trainNo" value="1234"/>
+   		<property name="source" value="chennai"/>
+   		<property name="destination" value="banglore"/>
+   		<property name="traveller" value="devisetty"/>
+   		<constructor-arg ref = "adrs1"/>
+   	</bean>
+   	
+   	<bean id="rajdhani" class="com.wipro.spring.TrainBean">
+   		<property name="trainNo" value="5678"/>
+   		<property name="source" value="delhi"/>
+   		<property name="destination" value="mumbai"/>
+   		<property name="traveller" value="devisetty"/>
+   		<property name="address" ref="adrs2"/>
+   	</bean>
+   
+</beans>
